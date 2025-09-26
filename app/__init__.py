@@ -11,8 +11,7 @@ def create_app(config_class=Config):
   db.init_app(app)
   Swagger(app)
 
-  @app.route('/teste')
-  def teste():
-    return "<h1>API RODANDO</h1>"
+  from .routes.professor_routes import professor_bp
+  app.register_blueprint(professor_bp)
   
   return app
