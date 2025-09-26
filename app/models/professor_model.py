@@ -9,6 +9,8 @@ class Professor(db.Model):
   materia = db.Column(db.String(100))
   observacoes = db.Column(db.Text)
 
+  turmas = db.relationship('Turma', back_populates='professores', lazy=True)
+
   def to_dict(self):
     return {
       'id': self.id,
