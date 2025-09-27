@@ -16,5 +16,8 @@ def create_app(config_class=Config):
 
   from .routes.turma_routes import turma_bp
   app.register_blueprint(turma_bp)
+
+  from .routes.aluno_routes import aluno_bp
+  app.register_blueprint(aluno_bp)
   
   return app

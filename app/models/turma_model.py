@@ -9,6 +9,7 @@ class Turma(db.Model):
 
     professor_id = db.Column(db.Integer, db.ForeignKey('professores.id'), nullable=False)
     professor = db.relationship('Professor', back_populates='turmas')
+    alunos = db.relationship('Aluno', back_populates='turma', lazy=True, cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
