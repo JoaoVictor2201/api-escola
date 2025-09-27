@@ -41,7 +41,7 @@ def update_turma(turma_id, data):
     return turma.to_dict()
 
 def delete_turma(turma_id):
-    turma = Turma.query.get()
+    turma = Turma.query.get(turma_id)
     if turma:
         db.session.delete(turma)
         db.session.commit()
