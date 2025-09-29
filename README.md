@@ -70,10 +70,38 @@ exit()
 python run.py
 ```
 
-A API estará rodando em `http://127.0.0.1:5000`.
+## 🐳 Executando com Docker
+
+### 🔧 Pré-requisitos
+
+- [Docker](https://docs.docker.com/get-docker/) instalado
+
+---
+
+### 📦 Passo 1: Construir a imagem
+
+No diretório raiz do projeto, rode:
+
+```bash
+docker build -t api-escola:latest .
+```
+
+Quando a imagem terminar a build, crie um container
+
+```bash
+docker run --name meu-container -p 1313:1313 api-escola
+```
+
+Quando o container for criado, execute ele
+
+```bash
+docker start meu-container
+```
+
+A API estará rodando em `http://127.0.0.1:1313`.
 
 ## Endpoints da API
 
 A documentação completa e interativa dos endpoints está disponível em:
 
--   **Swagger UI**: [http://127.0.0.1:5000/apidocs](http://127.0.0.1:5000/apidocs)
+-   **Swagger UI**: [http://127.0.0.1:1313/apidocs](http://127.0.0.1:1313/apidocs)
