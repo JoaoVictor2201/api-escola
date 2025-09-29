@@ -31,7 +31,7 @@ def get_turmas():
               professor_nome:
                 type: string
     """
-    turmas = turma_controller.get__turmas()
+    turmas = turma_controller.get_turmas()
     return jsonify(turmas)
 
 @turma_bp.route('/<int:turma_id>', methods=['GET'])

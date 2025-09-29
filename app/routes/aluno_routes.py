@@ -40,7 +40,7 @@ def get_alunos():
               turma_descricao:
                 type: string
     """
-    alunos = aluno_controller.get_all_alunos()
+    alunos = aluno_controller.get_alunos()
     return jsonify(alunos)
 
 @aluno_bp.route('/<int:aluno_id>', methods=['GET'])

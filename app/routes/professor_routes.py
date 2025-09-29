@@ -29,7 +29,7 @@ def get_professores():
               observacoes:
                 type: string
     """
-    professores = professor_controller.get__professores()
+    professores = professor_controller.get_professores()
     return jsonify(professores)
 
 @professor_bp.route('/<int:professor_id>', methods=['GET'])
