@@ -30,8 +30,8 @@ Siga os passos abaixo para executar a aplicação localmente.
 
 **1. Clonar o Repositório**
 ```bash
-git clone [https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git](https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git)
-cd SEU-REPOSITORIO
+git clone https://github.com/JoaoVictor2201/api-escola
+cd api-escola
 ```
 
 **2. Criar e Ativar o Ambiente Virtual**
