@@ -2,11 +2,11 @@ from app import db
 from app.models.turma_model import Turma
 from app.models.professor_model import Professor
 
-def get_all_turmas():
+def get_turmas():
     turmas = Turma.query.all()
     return [turma.to_dict() for turma in turmas]
 
-def get_turma_by_id(turma_id):
+def get_turma(turma_id):
     turma = Turma.query.get(turma_id)
     return turma.to_dict() if turma else None
 

@@ -3,11 +3,11 @@ from app.models.aluno_model import Aluno
 from app.models.turma_model import Turma
 from datetime import datetime
 
-def get_all_alunos():
+def get_alunos():
     alunos = Aluno.query.all()
     return [aluno.to_dict() for aluno in alunos]
 
-def get_aluno_by_id(aluno_id):
+def get_aluno(aluno_id):
     aluno = Aluno.query.get(aluno_id)
     return aluno.to_dict()
 

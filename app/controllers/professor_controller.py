@@ -1,11 +1,11 @@
 from app import db
 from app.models.professor_model import Professor
 
-def get_all_professores():
+def get_professores():
     professores = Professor.query.all()
     return [professor.to_dict() for professor in professores]
 
-def get_professor_by_id(professor_id):
+def get_professor(professor_id):
     professor = Professor.query.get(professor_id)
     if professor:
         return professor.to_dict()

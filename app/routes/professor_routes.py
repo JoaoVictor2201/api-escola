@@ -29,8 +29,32 @@ def get_professores():
               observacoes:
                 type: string
     """
-    professores = professor_controller.get_all_professores()
+    professores = professor_controller.get__professores()
     return jsonify(professores)
+
+@professor_bp.route('/<int:professor_id>', methods=['GET'])
+def get_professor(professor_id):
+    """
+    Busca um professor por ID
+    ---
+    tags:
+      - Professores
+    parameters:
+      - in: path
+        name: professor_id
+        type: integer
+        required: true
+        description: ID do professor a ser buscado
+    responses:
+      200:
+        description: Detalhes do professor
+      404:
+        description: Professor não encontrado
+    """
+    professor = professor_controller.get_professor(professor_id)
+    if professor:
+        return jsonify(professor)
+    return jsonify({'error': 'Professor não encontrado'}), 404
 
 @professor_bp.route('/', methods=['POST'])
 def create_professor():
@@ -65,30 +89,6 @@ def create_professor():
     
     novo_professor = professor_controller.create_professor(data)
     return jsonify(novo_professor), 201
-
-@professor_bp.route('/<int:professor_id>', methods=['GET'])
-def get_professor(professor_id):
-    """
-    Busca um professor por ID
-    ---
-    tags:
-      - Professores
-    parameters:
-      - in: path
-        name: professor_id
-        type: integer
-        required: true
-        description: ID do professor a ser buscado
-    responses:
-      200:
-        description: Detalhes do professor
-      404:
-        description: Professor não encontrado
-    """
-    professor = professor_controller.get_professor_by_id(professor_id)
-    if professor:
-        return jsonify(professor)
-    return jsonify({'error': 'Professor não encontrado'}), 404
 
 @professor_bp.route('/<int:professor_id>', methods=['PUT'])
 def update_professor(professor_id):

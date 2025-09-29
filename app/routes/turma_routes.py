@@ -31,8 +31,32 @@ def get_turmas():
               professor_nome:
                 type: string
     """
-    turmas = turma_controller.get_all_turmas()
+    turmas = turma_controller.get__turmas()
     return jsonify(turmas)
+
+@turma_bp.route('/<int:turma_id>', methods=['GET'])
+def get_turma(turma_id):
+    """
+    Busca uma turma por ID
+    ---
+    tags:
+      - Turmas
+    parameters:
+      - in: path
+        name: turma_id
+        type: integer
+        required: true
+        description: ID da turma a ser buscada
+    responses:
+      200:
+        description: Detalhes da turma
+      404:
+        description: Turma não encontrada
+    """
+    turma = turma_controller.get_turma(turma_id)
+    if turma:
+        return jsonify(turma)
+    return jsonify({'error': 'Turma não encontrada'}), 404
 
 @turma_bp.route('/', methods=['POST'])
 def create_turma():
@@ -74,30 +98,6 @@ def create_turma():
         return jsonify({'error': 'Professor não encontrado'}), 404
 
     return jsonify(nova_turma), 201
-
-@turma_bp.route('/<int:turma_id>', methods=['GET'])
-def get_turma(turma_id):
-    """
-    Busca uma turma por ID
-    ---
-    tags:
-      - Turmas
-    parameters:
-      - in: path
-        name: turma_id
-        type: integer
-        required: true
-        description: ID da turma a ser buscada
-    responses:
-      200:
-        description: Detalhes da turma
-      404:
-        description: Turma não encontrada
-    """
-    turma = turma_controller.get_turma_by_id(turma_id)
-    if turma:
-        return jsonify(turma)
-    return jsonify({'error': 'Turma não encontrada'}), 404
 
 @turma_bp.route('/<int:turma_id>', methods=['PUT'])
 def update_turma(turma_id):
