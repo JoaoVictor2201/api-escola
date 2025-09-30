@@ -62,7 +62,7 @@ def get_aluno(aluno_id):
       404:
         description: Aluno não encontrado.
     """
-    aluno = aluno_controller.get_aluno_by_id(aluno_id)
+    aluno = aluno_controller.get_aluno(aluno_id)
     if aluno:
         return jsonify(aluno)
     return jsonify({'error': 'Aluno não encontrado'}), 404
