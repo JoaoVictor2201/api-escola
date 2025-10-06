@@ -98,6 +98,14 @@ Quando o container for criado, execute ele
 docker start meu-container
 ```
 
+João Victor - 2402779
+
+Vitor Daniel - 2403060
+
+Anderson Alberissi - 2403321
+
+Gabriel Gonçalves - 2402912
+
 A API estará rodando em `http://127.0.0.1:1313`.
 
 ## Endpoints da API
