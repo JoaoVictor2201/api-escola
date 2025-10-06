@@ -92,12 +92,6 @@ Quando a imagem terminar a build, crie um container
 docker run --name meu-container -p 1313:1313 api-escola
 ```
 
-Quando o container for criado, execute ele
-
-```bash
-docker start meu-container
-```
-
 A API estará rodando em `http://127.0.0.1:1313`.
 
 ## Endpoints da API
